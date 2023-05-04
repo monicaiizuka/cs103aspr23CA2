@@ -10,6 +10,7 @@ var foodItemSchema = Schema( {
   age21: Boolean,
   yum: String,
   yuck: String,
+  response: String,
   userId: {type:ObjectId, ref:'user' }
 } );
 
