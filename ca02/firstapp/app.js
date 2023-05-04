@@ -122,6 +122,13 @@ app.get('/monicaIizuka',
   }
 )
 
+app.get('/abbieMurphy', 
+  isLoggedIn,
+  (req,res,next) => {
+    res.render('abbieMurphy');
+  }
+)
+
 app.get('/travelindex', 
   isLoggedIn,
   (req,res,next) => {
