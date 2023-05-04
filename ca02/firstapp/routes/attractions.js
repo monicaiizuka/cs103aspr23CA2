@@ -3,7 +3,7 @@
 */
 const express = require('express');
 const router = express.Router();
-const Attractions = require('../models/Attractions')
+const Attraction = require('../models/Attraction')
 const User = require('../models/User')
 
 router.get('/travel', (req,res,next) => {
@@ -17,5 +17,15 @@ isLoggedIn = (req,res,next) => {
     res.redirect('/login')
   }
 }
+
+// get the value associated to the key
+router.get('/attractions/',
+  isLoggedIn,
+  async (req, res, next) => {
+     res.render('attractionsList');
+});
+
+
+
 
 module.exports = router;
