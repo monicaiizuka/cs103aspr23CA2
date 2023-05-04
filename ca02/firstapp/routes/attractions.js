@@ -39,5 +39,23 @@ router.post('/attractions',
       res.redirect('/attractions')
 });
 
+router.get('/generate-response', async (req, res) => {
+  const prompt = req.query.prompt;
+  const response = await getResponse(prompt);
+  res.send(response);
+});
+
+async function getResponse(prompt) {
+  const completion = await openai.complete({
+    engine: 'davinci',
+    prompt: prompt,
+    maxTokens: 1024,
+    n: 1,
+    stop: null,
+    temperature: 0.8,
+  });
+  return completion.choices[0].text;
+}
+
 
 module.exports = router;
