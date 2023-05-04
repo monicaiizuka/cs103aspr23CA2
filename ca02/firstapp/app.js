@@ -115,7 +115,7 @@ app.get('/teamPage',
   }
 )
 
-app.get('/teamPage/monicaIizuka', 
+app.get('/monicaIizuka', 
   isLoggedIn,
   (req,res,next) => {
     res.render('monicaIizuka');
