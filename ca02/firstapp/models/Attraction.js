@@ -9,6 +9,7 @@ var AttractionSchema = Schema( {
   Duration: Number,
   Budget: Number,
   Type: String, 
+  Surprise: Boolean,
   userId: {type:ObjectId, ref:'user' }
 } );
 
