@@ -3,7 +3,7 @@
 */
 const express = require('express');
 const router = express.Router();
-const Travel = require('../models/Travel')
+const Attractions = require('../models/Attractions')
 const User = require('../models/User')
 
 router.get('/travel', (req,res,next) => {
