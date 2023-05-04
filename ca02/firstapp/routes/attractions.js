@@ -1,4 +1,4 @@
-*
+/*
   travel.js -- Router for the attractionsRouter
 */
 const express = require('express');
