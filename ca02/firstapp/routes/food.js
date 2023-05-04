@@ -40,12 +40,29 @@ router.post('/food',
          age21: req.body.age21,
          yum: req.body.yum,
          yuck: req.body.yuck,
+         response: req.body.query,
          userId: req.user._id
         })
       await food.save();
       res.redirect('/food')
 });
+router.get('/food/generate-response', async (req, res) => {
+  const prompt = req.query.prompt;
+  const response = await getResponse(prompt);
+  res.send(response);
+});
 
+async function getResponse(prompt) {
+  const completion = await openai.complete({
+    engine: 'davinci',
+    prompt: prompt,
+    maxTokens: 1024,
+    n: 1,
+    stop: null,
+    temperature: 0.8,
+  });
+  return completion.choices[0].text;
+}
 router.get('/todo/remove/:itemId',
   isLoggedIn,
   async (req, res, next) => {
