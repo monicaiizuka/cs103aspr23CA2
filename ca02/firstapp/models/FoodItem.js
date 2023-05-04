@@ -3,7 +3,7 @@ const mongoose = require( 'mongoose' );
 const Schema = mongoose.Schema;
 const ObjectId = mongoose.Schema.Types.ObjectId;
 
-var toDoItemSchema = Schema( {
+var foodItemSchema = Schema( {
   destination: String,
   duration: Number,
   budget: Number,
