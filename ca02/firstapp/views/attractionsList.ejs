@@ -1,3 +1,21 @@
 <h1> Tourist Attractions Itinerary for <%= user.username %> </h1>
 
-
+  <form method="post" action="attractions">
+            Destination: <br> <input type="text" name="Destination">
+            <br>
+            
+            Number of days at destination: <br> <input type="text" name="Duration">
+            <br>
+            
+            Budget: 
+            <br>
+            <input type="number" name="Budget">
+            <br>
+            
+            Type of Attractions do you want to see (nature, leisure, historical, iconic):
+            <br>
+            <input type="text" name="Type">
+            <br>
+           
+            <input type="submit" value="Let's Hit the Ground Running!">
+        </form>
