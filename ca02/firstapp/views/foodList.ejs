@@ -1,23 +1,25 @@
 <h1> Customized Food Tour for <%= user.username %> </h1>
 
   <form method="post" action="food">
-            <input type="text" placeholder = "destination" name="destination">
+            Destination: <br> <input type="text" name="destination">
             <br>
-            <input type="text" placeholder = "duration of trip" name="duration">
+            How many days will you be staying?: <br> <input type="text" name="duration">
             <br>
-            <input type="number" placeholder = "budget" name="budget">
+            Budget: 
             <br>
-            Any cravings you have?
+            <input type="number" name="budget">
+            <br>
+            Any cravings you have?:
             <br>
             <input type="text" name="yum">
             <br>
-            Anything to avoid?
+            Anything to avoid?:
             <br>
             <input type="text" name="yuck">
             <br>
             <label>
-                <input type="checkbox" name="Include local bars and wineries?>
-                  Yes?
+                <input type="checkbox" name="age21">
+                  Include local bars and wineries?
             </label>
             <input type="submit" value="store">
         </form>
