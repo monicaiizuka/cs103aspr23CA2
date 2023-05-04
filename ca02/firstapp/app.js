@@ -115,6 +115,13 @@ app.get('/teamPage',
   }
 )
 
+app.get('/teamPage/monicaIizuka', 
+  isLoggedIn,
+  (req,res,next) => {
+    res.render('monicaIizuka');
+  }
+)
+
 app.get('/travelindex', 
   isLoggedIn,
   (req,res,next) => {
