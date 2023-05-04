@@ -24,7 +24,7 @@ isLoggedIn = (req,res,next) => {
 router.get('/food/',
   isLoggedIn,
   async (req, res, next) => {
-    res.render('toDoList',{items,show,completed});               
+    res.render('foodList');               
 });
 
 
