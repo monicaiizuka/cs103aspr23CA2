@@ -9,6 +9,7 @@ const toDoRouter = require('./routes/todo');
 const weatherRouter = require('./routes/weather');
 const attractionsRouter = require('./routes/attractions');
 const foodRouter = require('./routes/food');
+const artRouter = require('./routes/art');
 
 const User = require('./models/User');
 
@@ -129,6 +130,13 @@ app.get('/abbieMurphy',
   }
 )
 
+app.get('/ariasmith', 
+  isLoggedIn,
+  (req,res,next) => {
+    res.render('ariasmith');
+  }
+)
+
 app.get('/travelindex', 
   isLoggedIn,
   (req,res,next) => {
@@ -141,6 +149,7 @@ app.use(toDoRouter);
 app.use(weatherRouter);
 app.use(attractionsRouter);
 app.use(foodRouter);
+app.use(artRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
