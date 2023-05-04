@@ -7,7 +7,7 @@ const layouts = require("express-ejs-layouts");
 const pw_auth_router = require('./routes/pwauth')
 const toDoRouter = require('./routes/todo');
 const weatherRouter = require('./routes/weather');
-const travelRouter = require('./routes/travel);
+const travelRouter = require('./routes/travel');
 
 const User = require('./models/User');
 
