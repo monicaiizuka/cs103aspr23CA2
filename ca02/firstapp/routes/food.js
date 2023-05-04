@@ -3,7 +3,7 @@
 */
 const express = require('express');
 const router = express.Router();
-const Travel = require('../models/FoodItem')
+const Food = require('../models/FoodItem')
 const User = require('../models/User')
 
 
