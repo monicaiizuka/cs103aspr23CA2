@@ -8,6 +8,7 @@ var AttractionSchema = Schema( {
   Destination: String,
   Duration: Number,
   Budget: Number,
+  Type: String, 
   userId: {type:ObjectId, ref:'user' }
 } );
 
