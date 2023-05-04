@@ -33,14 +33,16 @@ router.get('/food/',
 router.post('/food',
   isLoggedIn,
   async (req, res, next) => {
-      const todo = new ToDoItem(
-        {item:req.body.item,
-         createdAt: new Date(),
-         completed: false,
-         priority: parseInt(req.body.priority),
+      const todo = new FoodItem(
+        {destination:req.body.destination,
+         duration: req.body.duration,
+         budget: req.body.budget,
+         age21: req.body.age21,
+         yum: req.body.yum,
+         yuck: req.body.yuck,
          userId: req.user._id
         })
-      await todo.save();
+      await food.save();
       res.redirect('/food')
 });
 
