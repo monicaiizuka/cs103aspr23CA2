@@ -108,6 +108,14 @@ app.get('/about',
   }
 )
 
+app.get('/teamPage', 
+  isLoggedIn,
+  (req,res,next) => {
+    res.render('teamPage');
+  }
+)
+
+
 app.use(toDoRouter);
 app.use(weatherRouter);
 app.use(attractionsRouter);
