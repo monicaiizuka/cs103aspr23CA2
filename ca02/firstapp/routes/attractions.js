@@ -25,7 +25,19 @@ router.get('/attractions/',
      res.render('attractionsList');
 });
 
-
+/* add the value in the body to the list associated to the key */
+router.post('/attractions',
+  isLoggedIn,
+  async (req, res, next) => {
+      const todo = new Attraction(
+        {destination:req.body.destination,
+         duration: req.body.duration,
+         budget: req.body.budget,
+         userId: req.user._id
+        })
+      await attractions.save();
+      res.redirect('/attractions')
+});
 
 
 module.exports = router;
