@@ -115,6 +115,13 @@ app.get('/teamPage',
   }
 )
 
+app.get('/travelindex', 
+  isLoggedIn,
+  (req,res,next) => {
+    res.render('travelindex');
+  }
+)
+
 
 app.use(toDoRouter);
 app.use(weatherRouter);
