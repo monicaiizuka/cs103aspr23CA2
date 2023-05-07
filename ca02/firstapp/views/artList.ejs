@@ -1,23 +1,31 @@
 <h1> Customized Art Selection for <%= user.username %> </h1>
 
   <form method="post" action="/art">
-            Destination:<font color= "red">*</font> <br> <input type="text" name="destination" required>
-            <label>
-                <input type="checkbox" name="weekend" value="open on the weekends">
-                  Open on the weekends?
-            </label>
-            <label>
-                <input type="checkbox" name="free" value="free">
-                  Only include free museums?
-            </label>
-            <br>
-            Any artists you love:
-            <br>
-            <input type="text" name="artist">
-            <br>
-            What type of art would you like to see?:
-            <br>
-            <input type="text" name="genre">
-            <br>
-            <input type="submit" value="Lets Go!">
+    <div class="mb-3">
+        <label for="destination" class="form-label">Destination:<font color= "red">*</font></label>
+        <input type="text" class="form-control" id="destination" name="destination" required>
+    </div>
+    <div class="mb-3">
+        <label for="artist" class="form-label"> Any artists you love:</label>
+        <input type="text" class="form-control" id="artist" name="artist">
+    </div>
+    <div class="mb-3">
+        <label for="genre" class="form-label"> What type of art would you like to see?:</label>
+        <input type="text" class="form-control" id="genre" name="genre">
+    </div>
+    <div class="form-check">
+        <input class="form-check-input" type="checkbox" name="weekend" value="open on the weekends" id="weekend">
+        <label class="form-check-label" for="weekend">
+            Open on the weekends?
+        </label>
+    </div>
+    <div class="form-check">
+        <input class="form-check-input" type="checkbox" name="free" value="free" id="free">
+        <label class="form-check-label" for="free">
+            Only include free museums?
+        </label>
+    </div>
+    <div class="mb-3">
+        <input type="submit" class="btn btn-primary" value="Lets Go!">
+    </div>
 </form>
