@@ -6,8 +6,10 @@ const router = express.Router();
 const Attraction = require('../models/Attraction')
 const User = require('../models/User')
 
-router.get('/travel', (req,res,next) => {
-  res.render('travel')
+let prompt  
+
+router.get('/attractions/', (req,res,next) => {
+  res.render('attractionsList')
 })
 
 isLoggedIn = (req,res,next) => {
@@ -18,44 +20,55 @@ isLoggedIn = (req,res,next) => {
   }
 }
 
-// get the value associated to the key
-router.get('/attractions/',
-  isLoggedIn,
-  async (req, res, next) => {
-     res.render('attractionsList');
-});
-
 /* add the value in the body to the list associated to the key */
 router.post('/attractions',
   isLoggedIn,
   async (req, res, next) => {
-      const todo = new Attraction(
+      console.log("we are inside the item for attraction")
+      const attraction = new Attraction(
         {destination:req.body.destination,
          duration: req.body.duration,
          budget: req.body.budget,
+         type: req.body.type,
+         surprise: req.body.surprise,
          userId: req.user._id
         })
-      await attractions.save();
-      res.redirect('/attractions')
+      await attraction.save();
+      createPrompt(req);
+      res.redirect('results?prompt='+prompt)
 });
 
-router.get('/generate-response', async (req, res) => {
-  const prompt = req.query.prompt;
-  const response = await getResponse(prompt);
-  res.send(response);
-});
+const createPrompt = (req) => {
+  let type
+  if (req.body.type) {
+      type = "by " + req.body.type
+  }else {
+      type = ""
+  }
+  
+  let surprise
+  if (req.body.surprise) {
+      surprise = " and put a random and surprise location."
+  }else {
+      surprise = ""
+  }
 
-async function getResponse(prompt) {
-  const completion = await openai.complete({
-    engine: 'davinci',
-    prompt: prompt,
-    maxTokens: 1024,
-    n: 1,
-    stop: null,
-    temperature: 0.8,
-  });
-  return completion.choices[0].text;
+  let budget
+  if (req.body.budget) {
+      budget = req.body.budget
+  }else {
+      budget = ""
+  }
+  
+  let duration 
+  if (req.body.duration) {
+      duration =  req.body.duration
+  }else {
+      duration = ""
+  }
+  
+  prompt = "Give me a full itinerary of " + type + " tourist attractions for a " + duration + " day trip with a budget of " + budget + " dollars in " + req.body.destination + " " + surprise + ".";
+  console.log(prompt); 
 }
-
 
 module.exports = router;
