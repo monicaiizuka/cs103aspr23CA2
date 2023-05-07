@@ -5,11 +5,11 @@ const Schema = mongoose.Schema;
 const ObjectId = mongoose.Schema.Types.ObjectId;
 
 var AttractionSchema = Schema( {
-  Destination: String,
-  Duration: Number,
-  Budget: Number,
-  Type: String, 
-  Surprise: Boolean,
+  destination: String,
+  duration: Number,
+  budget: Number,
+  type: String, 
+  surprise: String,
   userId: {type:ObjectId, ref:'user' }
 } );
 
