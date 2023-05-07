@@ -44,8 +44,10 @@ router.post('/food',
          userId: req.user._id
         })
       await food.save();
-      createPrompt(req);
-      res.redirect('results?prompt='+prompt)
+      res.redirect('/food');
+      //createPrompt(req);
+      //res.redirect('results?prompt='+prompt)
+    
       
 });
 
