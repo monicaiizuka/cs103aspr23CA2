@@ -44,9 +44,26 @@ router.post('/food',
          userId: req.user._id
         })
       await food.save();
-      res.redirect('/food');
-      //createPrompt(req);
-      //res.redirect('results?prompt='+prompt)
+      //res.redirect('/food');
+      createPrompt(req);
+      res.redirect('results?prompt='+prompt)
+  });
+  const createPrompt = (req) => {
+      prompt = "Create an itinerary for a " + req.body.duration + " trip in " + req.body.destination
+        
+        if(req.body.budget){
+          prompt = prompt + " with a budget of " + req.body.budget
+      }
+        if(req.body.yum){
+          prompt = prompt + " being sure to include places that serve " + req.body.yum
+      }
+        
+        if(req.body.age21){
+          prompt = prompt + " with a budget of " + req.body.budget
+      }
+        console.log(prompt);
+    }
+  
     
       
 });
