@@ -41,7 +41,7 @@ router.post('/attractions',
 const createPrompt = (req) => {
   let type
   if (req.body.type) {
-      type = "by " + req.body.type
+      type = req.body.type
   }else {
       type = ""
   }
@@ -67,7 +67,7 @@ const createPrompt = (req) => {
       duration = ""
   }
   
-  prompt = "Give me a full itinerary of " + type + " tourist attractions for a " + duration + " day trip with a budget of " + budget + " dollars in " + req.body.destination + " " + surprise + ".";
+  prompt = "Give me a full itinerary of " + type + " tourist attractions for a " + duration + " day trip with a budget of " + budget + " dollars in " + req.body.destination + surprise + ".";
   console.log(prompt); 
 }
 
