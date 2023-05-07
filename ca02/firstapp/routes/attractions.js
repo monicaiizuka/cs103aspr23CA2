@@ -48,7 +48,7 @@ const createPrompt = (req) => {
   
   let surprise
   if (req.body.surprise) {
-      surprise = " and put a surprise activity to do."
+      surprise = " and put a surprise activity to do"
   }else {
       surprise = ""
   }
