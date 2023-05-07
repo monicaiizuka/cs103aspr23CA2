@@ -34,6 +34,7 @@ router.post('/food',
   isLoggedIn,
   async (req, res, next) => {
       const food = new FoodItem(
+        console.log("we are inside the item for food")
         {destination:req.body.destination,
          duration: req.body.duration,
          budget: req.body.budget,
