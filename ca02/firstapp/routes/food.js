@@ -53,16 +53,16 @@ router.post('/food',
     prompt = "Create an itinerary for where to eat on a " + req.body.duration + "day trip in " + req.body.destination;
     
     if(req.body.budget){
-      prompt = prompt + "with a budget of " + req.body.budget;
+      prompt = prompt + "with a budget of " + req.body.budget
     }
     if(req.body.yum){
-      prompt = prompt + ", being sure to include " + req.body.yum  + ".";
+      prompt = prompt + ", being sure to include " + req.body.yum  + "."
     }
     if(req.body.yuck){
-      prompt = prompt + " Exculde places that serve " + req.body.yuck + ".";  
+      prompt = prompt + " Exculde places that serve " + req.body.yuck + "." 
     }
     if(req.body.age21){
-      prompt = prompt + " be sure to include local bars and wineries.";
+      prompt = prompt + " be sure to include local bars and wineries."
     }
     console.log(prompt);
     
