@@ -42,7 +42,7 @@ router.post('/food',
               yum: req.body.yum,
               userId: req.user._id
           })
-        await artItem.save();
+        await food.save();
         //createPrompt(req);
         res.redirect('/food');
         //res.redirect('results?prompt='+prompt)
