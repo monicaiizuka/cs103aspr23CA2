@@ -49,7 +49,7 @@ router.post('/food',
       
 });
 
-  const createPrompt() = (req) => {
+  const createPrompt = (req) => {
     prompt = "Create an itinerary for where to eat on a " + req.body.duration + "day trip in " + req.body.destination;
     
     if(req.body.budget){
