@@ -40,8 +40,6 @@ router.post('/food',
          budget: req.body.budget,
          age21: req.body.age21,
          yum: req.body.yum,
-         yuck: req.body.yuck,
-         response: req.body.destination,
          userId: req.user._id
         })
       await food.save();
