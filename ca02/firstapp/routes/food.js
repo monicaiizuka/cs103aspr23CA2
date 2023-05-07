@@ -33,7 +33,7 @@ router.get('/food/',
 router.post('/food',
   isLoggedIn,
   async (req, res, next) => {
-      const todo = new FoodItem(
+      const food = new FoodItem(
         {destination:req.body.destination,
          duration: req.body.duration,
          budget: req.body.budget,
@@ -44,7 +44,7 @@ router.post('/food',
          userId: req.user._id
         })
       await food.save();
-      //res.redirect('/food');
+      res.redirect('/food');
       //createPrompt(req);
       //res.redirect('results?prompt='+prompt)
   });
