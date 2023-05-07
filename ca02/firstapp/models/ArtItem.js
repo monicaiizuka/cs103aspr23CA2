@@ -4,11 +4,11 @@ const Schema = mongoose.Schema;
 const ObjectId = mongoose.Schema.Types.ObjectId;
 
 var ArtItemSchema = Schema( {
-  Destination: String,
-  Duration: Number,
-  Budget: Number,
-  Type: String, 
-  Genre: String,
+  destination: String,
+  weekend: String,
+  free: String,
+  artist: String, 
+  genre: String,
   userId: {type:ObjectId, ref:'user' }
 } );
 

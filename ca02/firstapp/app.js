@@ -13,6 +13,8 @@ const artRouter = require('./routes/art');
 
 const User = require('./models/User');
 
+const axios = require('axios')
+
 /* **************************************** */
 /*  Connecting to a Mongo Database Server   */
 /* **************************************** */
@@ -144,6 +146,16 @@ app.get('/travelindex',
   }
 )
 
+app.get('/results',
+    async (req,res,next) => {
+      console.log(req.query.prompt)
+    const response =
+        await axios.post('http://gracehopper.cs-i.brandeis.edu:3500/openai',
+        {prompt:req.query.prompt})
+    let results = response.data.choices[0].message;
+    //res.json(results)
+    res.render('results',{results})
+})
 
 app.use(toDoRouter);
 app.use(weatherRouter);
@@ -166,5 +178,7 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+
 
 module.exports = app;

@@ -1,0 +1,23 @@
+<h1> Customized Art Selection for <%= user.username %> </h1>
+
+  <form method="post" action="/art">
+            Destination:<font color= "red">*</font> <br> <input type="text" name="destination" required>
+            <label>
+                <input type="checkbox" name="weekend" value="open on the weekends">
+                  Open on the weekends?
+            </label>
+            <label>
+                <input type="checkbox" name="free" value="free">
+                  Only include free museums?
+            </label>
+            <br>
+            Any artists you love:
+            <br>
+            <input type="text" name="artist">
+            <br>
+            What type of art would you like to see?:
+            <br>
+            <input type="text" name="genre">
+            <br>
+            <input type="submit" value="Lets Go!">
+</form>
