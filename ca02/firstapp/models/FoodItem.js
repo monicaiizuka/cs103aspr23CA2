@@ -7,7 +7,7 @@ var FoodItemSchema = Schema( {
   destination: String,
   duration: Number,
   budget: Number,
-  age21: Boolean,
+  age21: String,
   yum: String,
   userId: {type:ObjectId, ref:'user' }
 } );
