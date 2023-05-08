@@ -6,7 +6,7 @@ const router = express.Router();
 const FoodItem = require('../models/FoodItem');
 const User = require('../models/User');
 
-
+let prompt
 /*
 this is a very simple server which maintains a key/value
 store using an object where the keys and values are lists of strings
@@ -43,11 +43,25 @@ router.post('/food',
               userId: req.user._id
           })
         await food.save();
-        //createPrompt(req);
-        res.redirect('/food');
-        //res.redirect('results?prompt='+prompt)
+        createPrompt(req);
+
+        res.redirect('results?prompt='+prompt)
 });
 
+const createPromt = (req) =>{
+    prompt = "Write an itinerary for a " + req.body.duration + " day trip to " + req.body.destinaiton;
+    if(req.body.budget){
+        prompt = prompt + " with a budget of " + req.body.budget + ".";
+    }
+    if(req.body.yum){
+        prompt = prompt + " Be sure to include places that serve " + req.body.yum;
+    }
+    if(req.body.age21){
+      prompt = prompt + " as well as local bars and wineries.";
+    }
+
+    console.log(prompt);
+}
   
 
 
