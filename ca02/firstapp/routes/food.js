@@ -48,7 +48,7 @@ router.post('/food',
         res.redirect('results?prompt='+prompt)
 });
 
-const createPromt = (req) =>{
+const createPrompt = (req) =>{
     prompt = "Write an itinerary for a " + req.body.duration + " day trip to " + req.body.destinaiton;
     if(req.body.budget){
         prompt = prompt + " with a budget of " + req.body.budget + ".";
